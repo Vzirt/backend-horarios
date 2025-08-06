@@ -1,0 +1,373 @@
+:root {
+  --primary: #3da9fc;
+  --primary-hover: #2383cc;
+  --header-dark-bg: #0B3D91;
+  --header-light-bg: #1e293b;
+  --clase-bg: #1c1c1c;
+  --empty-bg: #2a2a2a;
+  --border-color: #334155;
+  --text-color: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-light: #64748b;
+}
+
+/* CONTENEDOR GENERAL */
+.contenedor-horarios {
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0f172a;
+  color: var(--text-color);
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* TÍTULO GENERAL */
+.contenedor-horarios > h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 0 0 8px #3da9fc;
+}
+
+/* CONTENEDOR DEL TÍTULO DE CADA HORARIO AGRUPADO */
+.historial-horario {
+  margin-bottom: 2rem;
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  background-color: var(--header-light-bg);
+}
+
+/* CUADRO CON EL TÍTULO (carrera, grupo, aula...) */
+.historial-horario > .titulo-horario {
+  background-color: var(--header-dark-bg);
+  color: white;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  user-select: none;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* TABLA HORARIO */
+.horario-grid {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  text-align: center;
+  table-layout: fixed;
+  background-color: var(--clase-bg);
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  box-sizing: border-box;
+  min-width: 600px;
+}
+
+/* Encabezado de la tabla (fila con días y horas) */
+.horario-grid th {
+  background-color: var(--header-light-bg);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-color);
+  padding: 8px;
+  vertical-align: middle;
+  height: 50px;
+  text-transform: uppercase;
+}
+
+/* Celdas de la tabla */
+.horario-grid td {
+  background-color: var(--clase-bg);
+  color: var(--text-color);
+  font-size: 0.85rem;
+  border: 1px solid var(--border-color);
+  padding: 6px;
+  vertical-align: top;
+  height: 80px;
+  transition: background-color 0.3s ease;
+}
+
+.horario-grid td:hover {
+  background-color: #1e293b;
+}
+
+.horario-grid td .materia {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.horario-grid td .docente,
+.horario-grid td .aula,
+.horario-grid td .grupo {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 3px;
+}
+
+.horario-grid td.empty-cell {
+  background-color: var(--empty-bg);
+  color: var(--text-light);
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+/* FILTROS */
+.filtros-horarios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-bottom: 1.8rem;
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.filtros-horarios select {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background-color: var(--header-light-bg);
+  color: var(--text-color);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  transition: border 0.3s ease;
+  min-width: 140px;
+}
+
+.filtros-horarios select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .filtros-horarios {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filtros-horarios select {
+    width: 80%;
+    min-width: unset;
+  }
+
+  .horario-grid {
+    font-size: 0.75rem;
+    min-width: unset;
+  }
+
+  .horario-grid th, .horario-grid td {
+    height: 60px;
+    padding: 5px;
+  }
+}
+
+/* TOP BAR */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* BOTÓN REGRESAR */
+.btn-regresar {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+}
+
+.btn-regresar:hover {
+  background-color: var(--primary-hover);
+}
+
+.encabezado-institucional {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0b1f40;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px 8px 0 0;
+}
+
+.logo-izquierdo img,
+.logo-derecho img {
+  width: 80px;
+  height: auto;
+}
+
+.informacion-institucion {
+  text-align: center;
+  flex: 1;
+}
+
+.informacion-institucion h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.informacion-institucion p {
+  margin: 2px 0;
+  font-size: 14px;
+}
+
+
+
+/* CABECERA DE HORARIO ESTILO INSTITUCIONAL */
+.cabecera-horario.formal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #0b1f40;
+  color: white;
+  position: relative;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cabecera-horario.formal .logo-izquierdo {
+  width: 100px;
+  height: auto;
+}
+
+.cabecera-horario.formal .logo-derecho {
+  width: 100px;
+  height: auto;
+}
+
+.cabecera-horario.formal .info-horario {
+  flex: 1;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 0 10px;
+}
+
+.cabecera-horario.formal .info-horario h1 {
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+  color: var(--primary);
+}
+
+.cabecera-horario.formal .info-horario h2 {
+  font-size: 1.2rem;
+  margin: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.cabecera-horario.formal .info-horario h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+  color: #ddd;
+}
+
+.cabecera-horario.formal .info-horario p {
+  margin: 3px 0;
+  color: var(--text-light);
+  font-size: 0.85rem;
+}
+
+.pie-horario {
+  background-color: #0b1f40;
+  color: #ccc;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 10px 0;
+  border-top: 1px solid var(--border-color);
+  border-radius: 0 0 12px 12px;
+}
+
+.modal-editar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-contenido {
+  background: #1e293b;
+  padding: 20px 30px;
+  border-radius: 10px;
+  width: 350px;
+  color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+.modal-contenido h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.modal-contenido label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.modal-contenido input {
+  width: 100%;
+  padding: 6px 8px;
+  background-color: #0f172a;
+  color: white;
+  border: 1px solid #334155;
+  border-radius: 6px;
+}
+
+.modal-botones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.modal-botones button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: var(--primary);
+  color: white;
+}
+
+.modal-botones button:hover {
+  background-color: var(--primary-hover);
+}
+
+.editar-btn {
+  margin-top: 5px;
+  background: none;
+  border: none;
+  color: #3da9fc;
+  cursor: pointer;
+  font-size: 1rem;
+}
